@@ -11,6 +11,9 @@
         <app-personajes [data] = "personajes"></app-personajes>
     </div>
     <div class="col p-xy">
-        <app-nuevo-personaje [personajes] = "personajes" [nuevoPersonaje] = "nuevoPersonaje"></app-nuevo-personaje>
+        <app-nuevo-personaje 
+            [nuevoPersonaje] = "nuevoPersonaje" 
+            (onNuevoPersonaje) = "addNewCharacter( $event )" 
+        ></app-nuevo-personaje>
     </div>
 </div>

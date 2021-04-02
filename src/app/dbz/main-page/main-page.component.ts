@@ -38,4 +38,10 @@ export class MainPageComponent implements OnInit {
     }
   ];
 
+  addNewCharacter = ( character: Personajes ): void =>{
+    console.log('LLego a addNewCharacter');
+    console.log('character: ', character);
+    this.personajes.push( character );
+  }
+
 }

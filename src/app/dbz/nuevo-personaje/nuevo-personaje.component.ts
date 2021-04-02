@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { EmitterVisitorContext } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Personajes } from '../interfaces/personajes';
+
 
 @Component({
   selector: 'app-nuevo-personaje',
@@ -8,11 +10,12 @@ import { Personajes } from '../interfaces/personajes';
 })
 export class NuevoPersonajeComponent implements OnInit {
 
-  @Input('personajes') personajes: Personajes[] = [];
   @Input('nuevoPersonaje') nuevoPersonaje = { 
     nombre: '',
     poder: 0
   };
+
+  @Output() onNuevoPersonaje: EventEmitter<Personajes> = new EventEmitter();
 
   constructor() { }
 
@@ -24,8 +27,8 @@ export class NuevoPersonajeComponent implements OnInit {
     if(this.nuevoPersonaje.nombre.trim().length === 0) {return};
 
     console.log(this.nuevoPersonaje);
+    this.onNuevoPersonaje.emit( this.nuevoPersonaje );
 
-    this.personajes.push( this.nuevoPersonaje );
     this.nuevoPersonaje = {
       nombre: '',
       poder: 0
