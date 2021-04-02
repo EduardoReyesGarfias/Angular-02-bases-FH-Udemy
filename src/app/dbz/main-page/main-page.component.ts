@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Personajes } from '../interfaces/personajes';
+
 
 @Component({
   selector: 'app-main-page',
@@ -7,15 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
+ 
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  // Agrega un personaje
-  agregaPersonaje = (): void =>{
-    
-    console.log('Se mando el formulariooooo');
+   // Recoger los datos del formulario
+  nuevoPersonaje = {
+    nombre: 'Yayiorbe',
+    poder: 5
   }
+
+  // Listado de personajes
+  personajes: Personajes[] = [
+    {
+      nombre: 'Goku',
+      poder: 1345000
+    },
+    {
+      nombre: 'Gohan',
+      poder: 1111000
+    },
+    {
+      nombre: 'Krilin',
+      poder: 50000
+    }
+  ];
 
 }
